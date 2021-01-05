@@ -45,3 +45,8 @@ print(len(x))
 # YOUR CODE HERE
 for num in x:
     print(num * 1000)
+
+print(x)
+
+for i in range(0, len(x)):
+    print(x[i])

@@ -10,32 +10,46 @@ for more info regarding list comprehensions.
 
 # Write a list comprehension to produce the array [1, 2, 3, 4, 5]
 
-y = []
+# y = [i+1 for i in range(0, 5)]
+y = [i for i in range(1, 6)]
+print(f"line 15 — y: {y}")
 
-print (y)
+x = []
+for i in range(1, 6):
+    x.append(i)
+
+print(f"line 21 — x: {x}")
+
+x.extend(i for i in range(1, 6))
+print(f"line 24 — x: {x}")
 
 # Write a list comprehension to produce the cubes of the numbers 0-9:
 # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
-
-y = []
-
-print(y)
+y = [i**3 for i in range(0, 10)]
+print(f"line 29 — y: {y}")
 
 # Write a list comprehension to produce the uppercase version of all the
 # elements in array a. Hint: "foo".upper() is "FOO".
 
-a = ["foo", "bar", "baz"]
+words_arr = ["foo", "bar", "baz"]
+# b = ["ava", "doc"]
+y = [word.upper() for word in words_arr]
 
-y = []
-
-print(y)
+print(f"line 38 — y: {y}")
 
 # Use a list comprehension to create a list containing only the _even_ elements
 # the user entered into list x.
 
-x = input("Enter comma-separated numbers: ").split(',')
+input_arr = input("Enter comma-separated numbers: ").split(',')
 
+print(f"input_arr: {input_arr}")
 # What do you need between the square brackets to make it work?
-y = []
+even_numbers = [num for num in input_arr if int(num) % 2 == 0]
+print(f"even_numbers: {even_numbers}")
 
-print(y)
+numbers_arr = []
+for num in input_arr:
+    if int(num) % 2 == 0:
+        numbers_arr.append(num)
+
+print(f"numbers_arr: {numbers_arr}")
