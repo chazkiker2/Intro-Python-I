@@ -4,8 +4,12 @@
 # When you use a variable in a function, it's local in scope to the function.
 x = 12
 
+
 def change_x():
+    global x
     x = 99
+    # print(x)
+
 
 change_x()
 
@@ -19,6 +23,7 @@ def outer():
     y = 120
 
     def inner():
+        nonlocal y
         y = 999
 
     inner()
@@ -30,3 +35,32 @@ def outer():
 
 
 outer()
+
+
+def outer_two():
+    outer_two.y = 120
+
+    def inner():
+        outer_two.y = 888
+        print(outer_two.y)
+
+    inner()
+
+    print(outer_two.y)
+
+
+outer_two()
+
+
+def closure_out(static_in):
+    def closure_in(param):
+        return static_in + param
+
+    return closure_in
+
+
+a = closure_out(1)
+b = closure_out(100)
+
+print(a(2))
+print(b(2))
