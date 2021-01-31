@@ -33,7 +33,7 @@ waypoints = [
     }
 ]
 
-# Add a new waypoint to the list
+# Add a new Waypoint to the list
 # YOUR CODE HERE
 # unassigned_location = {
 #     "lat": 25,
