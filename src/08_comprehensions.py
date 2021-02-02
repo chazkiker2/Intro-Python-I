@@ -8,48 +8,67 @@ Take a look at https://docs.python.org/3/tutorial/datastructures.html#list-compr
 for more info regarding list comprehensions.
 """
 
+################################################################
+# list-comprehension with numbers using range()
+################################################################
 # Write a list comprehension to produce the array [1, 2, 3, 4, 5]
 
-# y = [i+1 for i in range(0, 5)]
-y = [i for i in range(1, 6)]
-print(f"line 15 — y: {y}")
+# LIST COMP using range() with two parameters `start=1, stop=6`
+nums_1_thru_5 = [i for i in range(1, 6)]  # range(1, 6): start at 1, end at 5
+print(f"nums_1_thru_5 {nums_1_thru_5}")
 
-x = []
+# Alternative LIST COMP to achieve the same result as above:
+# using range() with one parameter `stop=5` (iterates through 0, 1, 2, 3, 4)
+# and manipulating the variable called `i` directly
+nums_1_thru_5_alt = [i + 1 for i in range(5)]  # range(5): start at 0, end at 4
+print(f"nums_1_thru_5_alt {nums_1_thru_5_alt}")
+
+# for-loop approach
+# (NOTE: THIS IS NOT A COMPREHENSION, it just achieves the same result in a for-loop approach)
+nums_1_thru_5_for_loop = []
 for i in range(1, 6):
-    x.append(i)
-
-print(f"line 21 — x: {x}")
-
-x.extend(i for i in range(1, 6))
-print(f"line 24 — x: {x}")
+    nums_1_thru_5_for_loop.append(i)
+print(f"nums_1_thru_5_for_loop {nums_1_thru_5_for_loop}")
 
 # Write a list comprehension to produce the cubes of the numbers 0-9:
 # [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
-y = [i**3 for i in range(0, 10)]
-print(f"line 29 — y: {y}")
+cubes_0_thru_9 = [i ** 3 for i in range(10)]  # range(10) -> start at 0, end at 9
+print(f"cubes_0_thru_9 {cubes_0_thru_9}")
+
+################################################################
+# list-comprehension with string manipulation
+################################################################
 
 # Write a list comprehension to produce the uppercase version of all the
 # elements in array a. Hint: "foo".upper() is "FOO".
-
 words_arr = ["foo", "bar", "baz"]
-# b = ["ava", "doc"]
-y = [word.upper() for word in words_arr]
+upper_case_words = [word.upper() for word in words_arr]
+print(f"upper_case_words = {upper_case_words}")
 
-print(f"line 38 — y: {y}")
+# for-loop approach
+# (NOTE: THIS IS NOT A COMPREHENSION, it just achieves the same result in a for-loop approach)
+upper_case_words_long = []
+for word in words_arr:
+    upper_case_words_long.append(word.upper())
+print(f"upper_case_words_long = {upper_case_words}")
 
-# Use a list comprehension to create a list containing only the _even_ elements
-# the user entered into list x.
+################################################################
+# list-comprehension with `if` operator
+################################################################
 
+# Use a list comprehension to create a list containing only
+# the _even_ elements the user entered into list x.
 input_arr = input("Enter comma-separated numbers: ").split(',')
 
-print(f"input_arr: {input_arr}")
-# What do you need between the square brackets to make it work?
+# note: must cast `num` to type int to use the modulo operator
+# the comprehension below only selects elements in `input_arr` if the int value from the string is even
 even_numbers = [num for num in input_arr if int(num) % 2 == 0]
 print(f"even_numbers: {even_numbers}")
 
-numbers_arr = []
+# for-loop approach
+# (NOTE: THIS IS NOT A COMPREHENSION, it just achieves the same result in a for-loop approach)
+even_nums_long = []
 for num in input_arr:
     if int(num) % 2 == 0:
-        numbers_arr.append(num)
-
-print(f"numbers_arr: {numbers_arr}")
+        even_nums_long.append(num)
+print(f"even_nums_long: {even_nums_long}")

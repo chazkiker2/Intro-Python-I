@@ -1,5 +1,6 @@
 """
 Dictionaries are Python's implementation of associative arrays.
+
 There's not much different with Python's version compared to what
 you'll find in other languages (though you can also initialize and
 populate dictionaries using comprehensions just like you can with
@@ -13,6 +14,7 @@ has the following keys:
  - lat: a signed integer representing a latitude value
  - lon: a signed integer representing a longitude value
  - name: a name string for this location
+
 """
 
 waypoints = [
@@ -57,6 +59,7 @@ waypoints.append({
 #     "lon": -130,
 #     "name": "not a real place"
 # }
+
 waypoints[0].update({
     "lon": -130,
     "name": "not a real place"
@@ -66,3 +69,16 @@ waypoints[0].update({
 # YOUR CODE HERE
 for location in waypoints:
     print(location)
+
+for dictionary in waypoints:
+    for key in dictionary:
+        print(f"key: {key}, value: {dictionary[key]}")
+
+    for value in dictionary.values():
+        print(f"value: {value}")
+
+    for key, value in dictionary.items():
+        print(f"key: {key}, value: {value}")
+
+    for key in dictionary.keys():
+        print(f"key: {key}")
