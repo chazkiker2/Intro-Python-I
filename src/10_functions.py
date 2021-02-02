@@ -7,7 +7,7 @@ num = input("Enter a number: ")
 num = int(num)
 
 
-# Print out "Even!" if the number is even. Otherwise print "Odd"
+# Return "Even!" if the number is even. Otherwise return "Odd"
 
 # YOUR CODE HERE
 def is_even_short(number):
